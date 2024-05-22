@@ -105,7 +105,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="max-w-[1640px] mx-auto flex justify-between items-center px-3 p-3 ">
-        <div className="bg-light rounded-3xl p-5 flex-col mx-auto space-y-3">
+        <div className="bg-light rounded-3xl p-5 flex-col mx-auto space-y-3 shadow-xl">
           <p className="text-center font-bold text-primary">
             GENERAL KNOWLEDGE
           </p>
