@@ -3,6 +3,9 @@ import { fetchQuestions } from "../../utils/api";
 import { useRouter } from "next/navigation";
 import { SaveScore } from "../../services/firebase";
 import { useAuth } from "../../context/auth";
+import { CircularProgress } from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const decodeEntities = (text: string) => {
   const textArea = document.createElement("textarea");
@@ -151,72 +154,90 @@ const Quiz = () => {
   }, [timeRemaining]);
 
   if (questions.length === 0) {
-    return <div>Loading...</div>;
+    return (
+      <div className="bg-secondary flex justify-center items-center h-screen">
+        <CircularProgress style={{ color: "#21888E" }} />
+      </div>
+    );
   }
 
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div>
-      <h1>Quiz</h1>
-      <p>
-        Time Remaining: {Math.floor(timeRemaining / 60)}:
-        {timeRemaining % 60 < 10
-          ? `0${timeRemaining % 60}`
-          : timeRemaining % 60}
-      </p>
-      <p>
-        Question {currentQuestionIndex + 1} of {questions.length}
-      </p>
-      <div>
-        <h3>{currentQuestion.question}</h3>
-        <ul>
-          {currentQuestion.incorrect_answers.map((answer, answerIndex) => (
-            <li key={answerIndex}>
+    <div className="bg-secondary min-h-screen px-6 py-6">
+      <div className="flex justify-between items-center max-w-[1640px] mx-auto md:w-1/2">
+        <div className="outline outline-2 rounded-full py-1 px-2 text-primary hover:bg-primary hover:text-white outline-primary font-bold">
+          Question {currentQuestionIndex + 1} of {questions.length}
+        </div>
+        <div className="outline outline-2 rounded-full py-1 px-2 text-primary hover:bg-primary hover:text-white outline-primary font-bold">
+          {Math.floor(timeRemaining / 60)}:
+          {timeRemaining % 60 < 10
+            ? `0${timeRemaining % 60}`
+            : timeRemaining % 60}
+        </div>
+      </div>
+      <div className="max-w-[1640px] mx-auto bg-light p-3 rounded-3xl shadow-xl mt-3 md:w-1/2">
+        <div className="text-gray-900 space-y-3">
+          <h3>{currentQuestion.question}</h3>
+          <ul>
+            {currentQuestion.incorrect_answers.map((answer, answerIndex) => (
+              <li key={answerIndex}>
+                <label>
+                  <input
+                    type="radio"
+                    name="answers"
+                    value={answer}
+                    onChange={() => handleAnswer(answer)}
+                    checked={userAnswers[currentQuestionIndex] === answer}
+                  />
+                  {answer}
+                </label>
+              </li>
+            ))}
+            <li>
               <label>
                 <input
                   type="radio"
                   name="answers"
-                  value={answer}
-                  onChange={() => handleAnswer(answer)}
-                  checked={userAnswers[currentQuestionIndex] === answer}
+                  value={currentQuestion.correct_answer}
+                  onChange={() => handleAnswer(currentQuestion.correct_answer)}
+                  checked={
+                    userAnswers[currentQuestionIndex] ===
+                    currentQuestion.correct_answer
+                  }
                 />
-                {answer}
+                {currentQuestion.correct_answer}
               </label>
             </li>
-          ))}
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="answers"
-                value={currentQuestion.correct_answer}
-                onChange={() => handleAnswer(currentQuestion.correct_answer)}
-                checked={
-                  userAnswers[currentQuestionIndex] ===
-                  currentQuestion.correct_answer
-                }
-              />
-              {currentQuestion.correct_answer}
-            </label>
-          </li>
-        </ul>
+          </ul>
+        </div>
+        <div className="space-x-2 flex justify-between items-center">
+          <div>
+            <button
+              className="text-primary"
+              onClick={handlePreviousQuestion}
+              disabled={currentQuestionIndex === 0}
+            >
+              <ArrowBackIosIcon />
+            </button>
+            <button
+              className="text-primary"
+              onClick={handleNextQuestion}
+              disabled={currentQuestionIndex === questions.length - 1}
+            >
+              <ArrowForwardIosIcon />
+            </button>
+          </div>
+          {currentQuestionIndex === questions.length - 1 && (
+            <button
+              className="outline outline-2 rounded-full py-1 px-2 text-primary hover:bg-primary hover:text-white outline-primary font-bold"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          )}
+        </div>
       </div>
-      <button
-        onClick={handlePreviousQuestion}
-        disabled={currentQuestionIndex === 0}
-      >
-        Previous
-      </button>
-      <button
-        onClick={handleNextQuestion}
-        disabled={currentQuestionIndex === questions.length - 1}
-      >
-        Next
-      </button>
-      {currentQuestionIndex === questions.length - 1 && (
-        <button onClick={handleSubmit}>Submit</button>
-      )}
     </div>
   );
 };
