@@ -38,19 +38,13 @@ export const SignUp = async (
   password: string,
   username: string
 ) => {
-  try {
-    const user = (
-      await createUserWithEmailAndPassword(FirebaseAuth, email, password)
-    ).user;
-    const uid = user.uid;
-    await setDoc(doc(db, "users", uid), {
-      username: username,
-    });
-  } catch (error: any) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.error(`Error (${errorCode}): ${errorMessage}`);
-  }
+  const user = (
+    await createUserWithEmailAndPassword(FirebaseAuth, email, password)
+  ).user;
+  const uid = user.uid;
+  await setDoc(doc(db, "users", uid), {
+    username: username,
+  });
 };
 
 export const SignIn = async (email: string, password: string) => {
@@ -73,6 +67,7 @@ export const GetSignInErrorMessage = (code: any) => {
 };
 
 export const GetSignUpErrorMessage = (code: any) => {
+  console.log("error signup");
   switch (code) {
     case "auth/email-already-in-use":
       return "Email has been registered";

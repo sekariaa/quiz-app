@@ -22,11 +22,11 @@ const LoginPage = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setError(null);
-
     try {
       await SignIn(data.email, data.password);
       router.push("/");
     } catch (error: any) {
+      console.log(error.code);
       setError(GetSignInErrorMessage(error.code));
     }
   };
