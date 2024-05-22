@@ -20,7 +20,8 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
     return (
       <div className="bg-primary min-h-screen flex items-center justify-center space-x-2">
         <Image
-          src={loadingImage}
+          // src={loadingImage}
+          src="/image-page.png"
           width={100}
           height={100}
           alt="Picture of quiz app"

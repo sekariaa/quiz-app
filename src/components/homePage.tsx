@@ -3,13 +3,13 @@ import { useAuth } from "../../context/auth";
 import { Authentication, getUsername } from "../../services/firebase";
 import Link from "next/link";
 import Image from "next/image";
-import heroImage from "../../public/hero-image.png";
-import puzzleImage from "../../public/puzzle-image.png";
+// import heroImage from "../../public/hero-image.png";
+// import puzzleImage from "../../public/puzzle-image.png";
 import OpenInNewOutlinedIcon from "@mui/icons-material/OpenInNewOutlined";
 import Typed from "typed.js";
 
 interface HomePageProps {
-  user: any; // Replace 'any' with your user type if you have one
+  user: any;
 }
 
 const HomePage: React.FC<HomePageProps> = ({ user }) => {
@@ -100,7 +100,8 @@ const HomePage: React.FC<HomePageProps> = ({ user }) => {
         </div>
         <div className="w-1/2 md:flex justify-center">
           <Image
-            src={heroImage}
+            // src={heroImage}
+            src="/hero-image.png"
             width={200}
             height={200}
             alt="Picture of quiz app"
@@ -114,7 +115,8 @@ const HomePage: React.FC<HomePageProps> = ({ user }) => {
           </p>
           <div className="flex items-center justify-center">
             <Image
-              src={puzzleImage}
+              // src={puzzleImage}
+              src="/puzzle-image.png"
               width={70}
               height={70}
               alt="Picture of quiz app"
