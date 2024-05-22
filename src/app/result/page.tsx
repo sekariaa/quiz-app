@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Result from "@/_components/result";
-import ProtectedRoute from "@/_components/protectedRoute";
+import Result from "@/components/result";
+import ProtectedRoute from "@/components/protectedRoute";
 
 const page = () => {
   return (

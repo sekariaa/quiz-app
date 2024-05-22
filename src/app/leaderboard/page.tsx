@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import React from "react";
-import Leaderboard from "@/_components/leaderboard";
-import ProtectedRoute from "@/_components/protectedRoute";
+import Leaderboard from "@/components/leaderboard";
+import ProtectedRoute from "@/components/protectedRoute";
 
 const page = () => {
   return (

@@ -28,7 +28,7 @@ const Leaderboard = () => {
 
   return (
     <div>
-      <h1>Leaderboard</h1>
+      <h1 className="text-xs">Leaderboard</h1>
       <table>
         <thead>
           <tr>
@@ -37,6 +37,7 @@ const Leaderboard = () => {
             <th>Score</th>
           </tr>
         </thead>
+
         <tbody>
           {topScores.map((data, index) => (
             <tr key={index}>

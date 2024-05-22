@@ -18,14 +18,14 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
 
   if (loading) {
     return (
-      <div className="bg-primary min-h-screen flex items-center justify-center">
+      <div className="bg-primary min-h-screen flex items-center justify-center space-x-2">
         <Image
           src={loadingImage}
           width={100}
           height={100}
           alt="Picture of quiz app"
         />
-        <h1 className="text-9xl font-bold text-white">QUIZ APP</h1>
+        <h1 className="font-bold text-white text-3xl">QUIZ APP</h1>
       </div>
     );
   }

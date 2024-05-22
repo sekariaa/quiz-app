@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import ProtectedRoute from "../_components/protectedRoute";
+import ProtectedRoute from "../components/protectedRoute";
 import { useAuth } from "../../context/auth";
-import HomePage from "@/_components/homePage";
+import HomePage from "@/components/homePage";
 const Page = () => {
   const { user } = useAuth();
 

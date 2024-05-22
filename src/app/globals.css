@@ -16,6 +16,5 @@ input:-webkit-autofill:active {
 }
 
 .MuiCircularProgress-colorPrimary {
-  /* color: #21888e; */
   color: white;
 }

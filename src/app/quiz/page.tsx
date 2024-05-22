@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import Quiz from "@/_components/quiz";
-import ProtectedRoute from "@/_components/protectedRoute";
+import Quiz from "@/components/quiz";
+import ProtectedRoute from "@/components/protectedRoute";
 
 const page = () => {
   return (
     <ProtectedRoute>
-        <Quiz />
+      <Quiz />
     </ProtectedRoute>
   );
 };
