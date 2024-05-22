@@ -12,6 +12,8 @@ import {
   getDoc,
   getDocs,
   collection,
+  query,
+  where,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -38,9 +40,22 @@ export const SignUp = async (
   password: string,
   username: string
 ) => {
-  const user = (
-    await createUserWithEmailAndPassword(FirebaseAuth, email, password)
-  ).user;
+  const usernameQuery = query(
+    collection(db, "users"),
+    where("username", "==", username)
+  );
+  const usernameSnapshot = await getDocs(usernameQuery);
+  if (!usernameSnapshot.empty) {
+    const error = new Error("Username already exists");
+    (error as any).code = "auth/username-already-in-use";
+    throw error;
+  }
+  const userCredential = await createUserWithEmailAndPassword(
+    FirebaseAuth,
+    email,
+    password
+  );
+  const user = userCredential.user;
   const uid = user.uid;
   await setDoc(doc(db, "users", uid), {
     username: username,
@@ -67,10 +82,11 @@ export const GetSignInErrorMessage = (code: any) => {
 };
 
 export const GetSignUpErrorMessage = (code: any) => {
-  console.log("error signup");
   switch (code) {
     case "auth/email-already-in-use":
       return "Email has been registered";
+    case "auth/username-already-in-use":
+      return "Username already exists";
     default:
       return "An error occurred during the sign up process";
   }
