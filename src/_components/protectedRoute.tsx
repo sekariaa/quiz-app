@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../../context/auth";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import loadingImage from "../../public/image-page.png";
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -15,7 +17,17 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
   }, [user, loading, router]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="bg-primary min-h-screen flex items-center justify-center">
+        <Image
+          src={loadingImage}
+          width={100}
+          height={100}
+          alt="Picture of quiz app"
+        />
+        <h1 className="text-9xl font-bold text-white">QUIZ APP</h1>
+      </div>
+    );
   }
 
   return <>{user ? children : null}</>;
