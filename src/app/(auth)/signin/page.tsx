@@ -133,7 +133,7 @@ const LoginPage = () => {
           >
             {isLoading ? (
               <span className="w-full relative px-5 py-2 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0 ">
-                <CircularProgress size="1rem" />
+                <CircularProgress size="1rem" style={{ color: "white" }} />
               </span>
             ) : (
               <span className="w-full relative px-5 py-2 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0 ">

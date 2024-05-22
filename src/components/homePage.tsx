@@ -67,7 +67,7 @@ const HomePage = () => {
         </div>
         <button
           onClick={handleSignOut}
-          className="outline outline-1 rounded-full py-1 px-2 text-primary mx-3"
+          className="outline outline-1 rounded-full py-1 px-2 text-primary mx-3 hover:bg-primary hover:text-white outline-primary"
         >
           Sign Out
         </button>
@@ -119,7 +119,7 @@ const HomePage = () => {
           </div>
           <div className="flex items-center justify-center">
             <Link href="quiz" passHref>
-              <div className="flex justify-between space-x-2 outline outline-1 rounded-full py-1 px-2 text-primary">
+              <div className="flex justify-between space-x-2 outline outline-1 rounded-full py-1 px-2 text-primary hover:font-bold">
                 <button>Start Quiz</button>
                 <OpenInNewOutlinedIcon />
               </div>
