@@ -1,0 +1,81 @@
+[debug] [2024-05-22T13:29:51.190Z] ----------------------------------------------------------------------
+[debug] [2024-05-22T13:29:51.193Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ASUS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-05-22T13:29:51.193Z] CLI Version:   13.10.0
+[debug] [2024-05-22T13:29:51.193Z] Platform:      win32
+[debug] [2024-05-22T13:29:51.194Z] Node Version:  v20.12.0
+[debug] [2024-05-22T13:29:51.194Z] Time:          Wed May 22 2024 20:29:51 GMT+0700 (Western Indonesia Time)
+[debug] [2024-05-22T13:29:51.194Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-22T13:29:51.275Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-22T13:29:51.276Z] > authorizing via signed-in user (sekariaa@gmail.com)
+[debug] [2024-05-22T13:29:51.276Z] [iam] checking project quiz-app-e5a9c for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-05-22T13:29:51.279Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/quiz-app-e5a9c:testIamPermissions [none]
+[debug] [2024-05-22T13:29:51.279Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/quiz-app-e5a9c:testIamPermissions x-goog-quota-user=projects/quiz-app-e5a9c
+[debug] [2024-05-22T13:29:51.280Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/quiz-app-e5a9c:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-05-22T13:29:51.661Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/quiz-app-e5a9c:testIamPermissions 200
+[debug] [2024-05-22T13:29:51.661Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/quiz-app-e5a9c:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-05-22T13:29:51.662Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/quiz-app-e5a9c [none]
+[debug] [2024-05-22T13:29:52.083Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/quiz-app-e5a9c 200
+[debug] [2024-05-22T13:29:52.084Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/quiz-app-e5a9c {"projectId":"quiz-app-e5a9c","projectNumber":"1052981741207","displayName":"quiz app","name":"projects/quiz-app-e5a9c","resources":{"hostingSite":"quiz-app-e5a9c"},"state":"ACTIVE","etag":"1_80258d6e-03e4-438c-982f-508cdb57f421"}
+[debug] [2024-05-22T13:29:54.884Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/quiz-app-e5a9c/sites pageToken=&pageSize=10
+[debug] [2024-05-22T13:29:55.608Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/quiz-app-e5a9c/sites 200
+[debug] [2024-05-22T13:29:55.608Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/quiz-app-e5a9c/sites {"sites":[{"name":"projects/quiz-app-e5a9c/sites/quiz-app-e5a9c","defaultUrl":"https://quiz-app-e5a9c.web.app","appId":"1:1052981741207:web:659750b96c46cdd7b94bd2","type":"DEFAULT_SITE"}]}
+[debug] [2024-05-22T13:29:55.609Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:1052981741207:web:659750b96c46cdd7b94bd2/config [none]
+[debug] [2024-05-22T13:29:56.492Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:1052981741207:web:659750b96c46cdd7b94bd2/config 200
+[debug] [2024-05-22T13:29:56.492Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:1052981741207:web:659750b96c46cdd7b94bd2/config {"projectId":"quiz-app-e5a9c","appId":"1:1052981741207:web:659750b96c46cdd7b94bd2","storageBucket":"quiz-app-e5a9c.appspot.com","apiKey":"AIzaSyC0asw5YPc1NtfiwOWPDs6DSJzSu4v2rag","authDomain":"quiz-app-e5a9c.firebaseapp.com","messagingSenderId":"1052981741207"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-05-22T13:30:02.478Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/quiz-app-e5a9c/sites/quiz-app-e5a9c [none]
+[debug] [2024-05-22T13:30:03.120Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/quiz-app-e5a9c/sites/quiz-app-e5a9c 200
+[debug] [2024-05-22T13:30:03.120Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/quiz-app-e5a9c/sites/quiz-app-e5a9c {"name":"projects/quiz-app-e5a9c/sites/quiz-app-e5a9c","defaultUrl":"https://quiz-app-e5a9c.web.app","appId":"1:1052981741207:web:659750b96c46cdd7b94bd2","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.3
+
+[info]   - Environments: .env.local
+
+
+[info]    Creating an optimized production build ...
+
+[info]  ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+
+[info]  ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./src/components/quiz.tsx
+105:6  Warning: React Hook useEffect has a missing dependency: 'handleQuizEnd'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+154:6  Warning: React Hook useEffect has a missing dependency: 'handleQuizEnd'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info] Failed to compile.
+
+
+[info] ./src/app/page.tsx:12:17
+Type error: Type '{ user: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'user' does not exist on type 'IntrinsicAttributes'.
+
+  10 |   return (
+  11 |     <ProtectedRoute>
+> 12 |       <HomePage user={user} />
+     |                 ^
+  13 |     </ProtectedRoute>
+  14 |   );
+  15 | };
+
+[debug] [2024-05-22T13:30:28.684Z] Error: ENOENT: no such file or directory, open 'C:\Users\ASUS\Documents\Projek\quiz-2\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

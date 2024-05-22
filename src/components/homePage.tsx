@@ -8,8 +8,11 @@ import puzzleImage from "../../public/puzzle-image.png";
 import OpenInNewOutlinedIcon from "@mui/icons-material/OpenInNewOutlined";
 import Typed from "typed.js";
 
-const HomePage = () => {
-  const { user } = useAuth();
+interface HomePageProps {
+  user: any; // Replace 'any' with your user type if you have one
+}
+
+const HomePage: React.FC<HomePageProps> = ({ user }) => {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
@@ -60,7 +63,7 @@ const HomePage = () => {
 
   return (
     <div className="bg-secondary min-h-screen">
-      <nav className="flex justify-between items-cente py-2 px-3 max-w-[1640px] mx-auto ">
+      <nav className="flex justify-between items-center py-2 px-3 max-w-[1640px] mx-auto">
         <div className="text-lg">
           <span className="font-bold text-primary"> QUIZ</span>
           <span className="text-primary">APP</span>
@@ -73,7 +76,7 @@ const HomePage = () => {
         </button>
       </nav>
       <div className="max-w-[1640px] mx-auto mt-2 flex justify-between items-center px-3 ">
-        <div className=" w-1/2 space-y-3 ">
+        <div className="w-1/2 space-y-3 ">
           <div>
             <p className="text-primary text-base">
               Welcome,
@@ -81,7 +84,7 @@ const HomePage = () => {
             </p>
             <p className="font-bold text-5xl text-primary">Improve Your Mind</p>
           </div>
-          <div className=" text-primary w-fit md:w-1/2 flex-col">
+          <div className="text-primary w-fit md:w-1/2 flex-col">
             <p className="text-justify text-base">
               Compete globally and aim to be one of the top 5 contenders. Are
               you ready to prove your skills?
@@ -95,7 +98,7 @@ const HomePage = () => {
             </Link>
           </div>
         </div>
-        <div className=" w-1/2 md:flex justify-center ">
+        <div className="w-1/2 md:flex justify-center">
           <Image
             src={heroImage}
             width={200}
@@ -104,7 +107,7 @@ const HomePage = () => {
           />
         </div>
       </div>
-      <div className="max-w-[1640px] mx-auto flex justify-between items-center px-3 p-3 ">
+      <div className="max-w-[1640px] mx-auto flex justify-between items-center px-3 p-3">
         <div className="bg-light rounded-3xl p-5 flex-col mx-auto space-y-3 shadow-xl">
           <p className="text-center font-bold text-primary">
             GENERAL KNOWLEDGE
